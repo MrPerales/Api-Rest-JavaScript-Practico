@@ -1,0 +1,19 @@
+{
+  "name": "api-rest-javascript-practico",
+  "version": "1.0.0",
+  "description": "Curso Practico de consumo de Api Rest con javaScript",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrPerales/Api-Rest-JavaScript-Practico.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MrPerales/Api-Rest-JavaScript-Practico/issues"
+  },
+  "homepage": "https://github.com/MrPerales/Api-Rest-JavaScript-Practico#readme"
+}
