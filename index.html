@@ -1,13 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APP Movies</title>
+    <script src="https://kit.fontawesome.com/fee86c006b.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="styles/app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap" rel="stylesheet">
 </head>
+
 <body>
+    <header class="header-container">
+        <span class="header-arrow inactive"></span>
+        <h1 class="header-title">App Movies</h1>
+        <!-- <h1 class="header-title header-title--categoryVieew inactive">category</h1> -->
+
+        <form id="searchForm" class="header-searchForm">
+            <input type="text" placeholder="search" id="search">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </header>
+
+    <main class="main">
+        <section id="trendingPreview" class="trendingPreview-container">
+
+            <article class="trendingPreview-movieList">
+                <div class="movie-container">
+                    <img src="" alt="movie Name" class="movie-img">
+
+                </div>
+            </article>
+
+            <article class="trendingPreview-movieList">
+                <div class="movie-container">
+                    <img src="" alt="movie Name" class="movie-img">
+                </div>
+            </article>
+
+            <article class="trendingPreview-movieList">
+                <div class="movie-container">
+                    <img src="" alt="movie Name" class="movie-img">
+                </div>
+            </article>
+
+            <article class="trendingPreview-movieList">
+                <div class="movie-container">
+                    <img src="" alt="movie Name" class="movie-img">
+                </div>
+            </article>
+            
+        </section>
+
+        <!-- categories Preview  -->
+
+        <section class="categoriesPreview">
+            <div class="categoriesList">
+                <ul class="categoriesNameList">
+                    <li class="categoryName">Action</li>
+                    <li class="categoryName">triller</li>
+                </ul>
+            </div>
+            <article class="categoriesMovieList">
+                <div class="movieList-container">
+                    <img src="" alt="movie Name" class="movie-img">
+                </div>
+                <div class="movieList-container">
+                    <img src="" alt="movie Name" class="movie-img">
+                </div>
+                <div class="movieList-container">
+                    <img src="" alt="movie Name" class="movie-img">
+                </div>
+                <div class="movieList-container">
+                    <img src="" alt="movie Name" class="movie-img">
+                </div>
+                <div class="movieList-container">
+                    <img src="" alt="movie Name" class="movie-img">
+                </div>
+                <div class="movieList-container">
+                    <img src="" alt="movie Name" class="movie-img">
+                </div>
+               
+            </article>
+        </section>
+
+        <!-- GenericList -->
+        <section id="genericList" class="genericList-container inactive">
+            <div class="movie-container">
+                <img src="" alt="movie Name" class="movie-img">
+            </div>
+            <div class="movie-container">
+                <img src="" alt="movie Name" class="movie-img">
+            </div>
+
+        </section>
+
+        <!-- movie Detail -->
+        <section id="movieDetail" class="movieDetail-container inactive">
+            <h1 class="movieDetail-title">movie title</h1>
+            <span class="movieDetail-score">8.0</span>
+            <p class="movieDetail-description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Aspernatur quo porro sit ut nobis excepturi unde odio
+                quae maiores ratione atque aperiam, tenetur voluptate
+                iste, asperiores voluptatum inventore quas saepe!
+            </p>
+
+            <article class="relatedMovies-container">
+                <h2 class="relatedMovies-title">related Movies</h2>
+
+                <div class="relatedMovies-scrollContainer">
+                    <div class="movie-container">
+                        <img src="" alt="movie Name" class="movie-img">
+                    </div>
+                    <div class="movie-container">
+                        <img src="" alt="movie Name" class="movie-img">
+                    </div>
+                    <div class="movie-container">
+                        <img src="" alt="movie Name" class="movie-img">
+                    </div>
+                    <div class="movie-container">
+                        <img src="" alt="movie Name" class="movie-img">
+                    </div>
+                    <div class="movie-container">
+                        <img src="" alt="movie Name" class="movie-img">
+                    </div>
+                    <div class="movie-container">
+                        <img src="" alt="movie Name" class="movie-img">
+                    </div>
+
+
+                </div>
+
+            </article>
+        </section>
+
+
+
+    </main>
+
+    <footer>Made by MrPerales</footer>
 
 
 
@@ -15,4 +151,5 @@
     <script src="src/secret.js"></script>
     <script src="src/main.js"></script>
 </body>
+
 </html>
