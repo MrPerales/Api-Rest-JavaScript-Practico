@@ -98,6 +98,11 @@ button{
     top: 0;
     width: 100%;
 }
+.trendingPreview-title{
+    font-family: var(--font-family-titles);
+    font-size: var(--font-size-md);
+    margin-bottom: 1rem;
+}
 .trendingPreview-container{
     display: flex;
     
@@ -118,7 +123,7 @@ button{
 }
 .trendingPreview-movieList{
     /* outline: 1px solid red; */
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     /* padding: .5rem; */
     /* width:11rem; */
     
@@ -133,7 +138,7 @@ button{
 
 }
 .trendingPreview-container, .categoriesPreview-container, footer {
-    margin-top: 3.5rem;
+    margin-top: 3rem;
 }
 .categoriesPreview{
     display: flex;
@@ -146,10 +151,22 @@ button{
 
 
 }
-.categoriesNameList{
+.categoriesList{
+    /* outline: 1px solid red; */
+    margin:2rem 0rem;
     display: flex;
-    gap: 2rem;
-    padding:0 1.5rem;
+    overflow-x:scroll;
+    overflow-y: hidden; 
+    white-space: nowrap;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:x proximity;
+    scroll-snap-align:center
+
+}
+.categoriesNameList{
+    /* display: flex;
+    gap: 2rem; */
+    padding:.5rem 1rem;
     
     font-family: var(--font-family-text);
     font-size: var(--font-size-sm);
