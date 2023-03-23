@@ -57,7 +57,11 @@ async function getCategoriesPreview(){
         const categoryName=document.createElement('h3');
         categoryName.classList.add('categoryName');
         categoryName.setAttribute('id',element.id);
+        
         const categoryNameText=document.createTextNode(element.name);
+        categoryName.addEventListener('click',()=>{
+            location.hash=`#category=${element.id}-${element.name}`;
+        })
 
         categoryName.appendChild(categoryNameText);
         categoriesNameList.appendChild(categoryName);
@@ -90,6 +94,33 @@ async function getRandomMoviesPreview(){   //not random , is now_Playing
 
 }
 
+async function getMoviesByCategory(id){
+    const {data,status}= await api(`/discover/movie`, {
+        params:{
+            with_genres:id
+        }
+    });
+    const category=data.results;
+
+    genericListSection.innerHTML='';
+    category.forEach(element => {
+        
+        const movieContainer=document.createElement('div');
+        movieContainer.classList.add('movie-container');
+     
+        const movieImg=document.createElement('img');
+        movieImg.classList.add('movie-img');
+        movieImg.setAttribute('alt',`${element.title}`);
+        movieImg.setAttribute('src',`${urlImages}/${element.poster_path}`);
+
+        movieContainer.appendChild(movieImg);
+        genericListSection.appendChild(movieContainer);
+        
+    });
+
+
+
+}
 
 // randomMoviesPreview();
 // getTrendingMoviesPreview();

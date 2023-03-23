@@ -10,7 +10,6 @@ const relatedMoviesContainer=document.querySelector('.relatedMovies-container');
 //list & containers
 const trendingMoviesPreviewList=document.querySelector('.trendingPreview-movieList');
 const trendingMoviesPreviewListTitle=document.querySelector('trendingPreview-title');
-
 const relatedMoviesScrollContainer=document.querySelector('.relatedMovies-scrollContainer');
 
 //elements

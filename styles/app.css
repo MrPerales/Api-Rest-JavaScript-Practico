@@ -217,13 +217,16 @@ li:hover{
 }
 .genericList-container .movie-container{
     display: inline-block;
-    width: 47.5%;
+    width: 40%;
 }
 .genericList-container {
     width: 100%;
+   
 }
 .movie-img{
     width: 100%;
+    margin-bottom: 1rem;
+    /* outline: 1px solid red ; */
 }
 
 /*movie detail */
