@@ -17,11 +17,13 @@ async function getTrendingMoviesPreview(){
     const movies =data.results;
     // console.log('movies',movies);
     // console.log('data',data);
-    movies.forEach(element => {
-
-        const trendingPreviewContainer=document.querySelector('#trendingPreview');
-        const trendingPreviewMovieList=document.querySelector(
-            '.trendingPreview-movieList');
+    const trendingPreviewContainer=document.querySelector('#trendingPreview');
+    const trendingPreviewMovieList=document.querySelector(
+        '.trendingPreview-movieList');
+    // trendingPreviewContainer.innerHTML='';
+    trendingPreviewMovieList.innerHTML="";
+        movies.forEach(element => {
+       
 
         const movieContainer=document.createElement('div');
         movieContainer.classList.add('movie-container');
@@ -44,10 +46,10 @@ async function getCategoriesPreview(){
     // console.log(data);
     const categories=data.genres;
 
-    
+    const categoriesListContainer=document.querySelector('.categoriesList')
+    categoriesListContainer.innerHTML='';
 
     categories.forEach(element => {
-        const categoriesListContainer=document.querySelector('.categoriesList')
 
         const categoriesNameList=document.createElement('div');
         categoriesNameList.classList.add('categoriesNameList');
@@ -70,7 +72,9 @@ async function getRandomMoviesPreview(){   //not random , is now_Playing
     console.log(data);
     const nowPlaying = data.results;
 
-    const categoriesMovieList=document.querySelector('.categoriesMovieList')
+    const categoriesMovieList=document.querySelector('.categoriesMovieList');
+    categoriesMovieList.innerHTML="";
+
     nowPlaying.forEach(element => {
         const movieListContainer=document.createElement('div');
         movieListContainer.classList.add('movieList-container');
