@@ -11,6 +11,10 @@ const relatedMoviesContainer=document.querySelector('.relatedMovies-container');
 const trendingMoviesPreviewList=document.querySelector('.trendingPreview-movieList');
 const trendingMoviesPreviewListTitle=document.querySelector('trendingPreview-title');
 const relatedMoviesScrollContainer=document.querySelector('.relatedMovies-scrollContainer');
+const categoriesMovieList=document.querySelector('.categoriesMovieList');
+const categoriesListContainer=document.querySelector('.categoriesList');
+const trendingPreviewMovieList=document.querySelector(
+    '.trendingPreview-movieList');
 
 //elements
 const headerArrow= document.querySelector('.header-arrow');
