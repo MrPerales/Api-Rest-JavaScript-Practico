@@ -59,7 +59,7 @@ h2{
     display: inline-block;
 }
 .header-arrow--white {
-    color:#ffffff;
+    color:var(--selector);
 }
 .header-title{
     padding: 1.5rem 0rem;
@@ -131,14 +131,14 @@ button{
     
 
 }
-.trendingPreview-movieList{
+/* .trendingPreview-movieList{ */
     /* outline: 1px solid red; */
     /* margin-top: 2rem; */
     /* padding: .5rem; */
     /* width:11rem; */
     
     /* scroll-snap-align:center */
-}
+/* } */
 .movie-container{
     width: var(--card-size-mobile);
     display: inline-block;
