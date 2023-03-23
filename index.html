@@ -16,13 +16,13 @@
 
 <body>
     <header class="header-container">
-        <span class="header-arrow inactive"></span>
+        <span class="header-arrow inactive">&lt;</span>
         <h1 class="header-title">App Movies</h1>
-        <!-- <h1 class="header-title header-title--categoryVieew inactive">category</h1> -->
+        <h1 class="header-title header-title--categoryVieew inactive">category</h1>
 
         <form id="searchForm" class="header-searchForm">
             <input type="text" placeholder="search" id="search">
-            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button id=""><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
     </header>
 
@@ -51,24 +51,10 @@
             </div>
 
             <article class="categoriesMovieList">
-                <div class="movieList-container">
+                <!-- <div class="movieList-container">
                     <img src="" alt="movie Name" class="movie-img">
                 </div>
-                <div class="movieList-container">
-                    <img src="" alt="movie Name" class="movie-img">
-                </div>
-                <div class="movieList-container">
-                    <img src="" alt="movie Name" class="movie-img">
-                </div>
-                <div class="movieList-container">
-                    <img src="" alt="movie Name" class="movie-img">
-                </div>
-                <div class="movieList-container">
-                    <img src="" alt="movie Name" class="movie-img">
-                </div>
-                <div class="movieList-container">
-                    <img src="" alt="movie Name" class="movie-img">
-                </div>
+                -->
                
             </article>
         </section>
@@ -135,6 +121,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="src/secret.js"></script>
     <script src="src/main.js"></script>
+    <script src="src/navigation.js"></script>
 </body>
 
 </html>

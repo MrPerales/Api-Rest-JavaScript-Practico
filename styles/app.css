@@ -51,6 +51,16 @@ h1{
 h2{
     font-size: var(--font-size-sm);
 }
+.header-arrow {
+    font-weight:500;
+    font-size: 36px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+.header-arrow--white {
+    color:#ffffff;
+}
 .header-title{
     padding: 1.5rem 0rem;
 }

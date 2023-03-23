@@ -64,6 +64,29 @@ async function getCategoriesPreview(){
     });
 }
 
+async function getRandomMoviesPreview(){   //not random , is now_Playing
 
-getTrendingMoviesPreview();
-getCategoriesPreview();
+    const {data,response}=await api('/movie/now_playing');
+    console.log(data);
+    const nowPlaying = data.results;
+
+    const categoriesMovieList=document.querySelector('.categoriesMovieList')
+    nowPlaying.forEach(element => {
+        const movieListContainer=document.createElement('div');
+        movieListContainer.classList.add('movieList-container');
+
+        const imgMovie=document.createElement('img');
+        imgMovie.setAttribute('alt',element.title);
+        imgMovie.setAttribute('src',`${urlImages}${element.poster_path}`)
+
+        movieListContainer.appendChild(imgMovie);
+        categoriesMovieList.appendChild(movieListContainer);
+
+    });
+
+}
+
+
+// randomMoviesPreview();
+// getTrendingMoviesPreview();
+// getCategoriesPreview();
