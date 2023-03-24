@@ -232,6 +232,7 @@ li:hover{
 /*movie detail */
 .movieDetail-container{
     outline: 1px solid red;
+    width: 36rem;
     border-bottom-left-radius: 1.6rem;
     border-top-right-radius: 1.6rem;
     padding: 3.2rem 2.4rem;
@@ -244,14 +245,15 @@ li:hover{
 .movieDetail-title{
     display: inline-block;
     width: 80%;
-    margin:0rem 0rem 1.6rem 0rem;
+    margin:0rem 0rem 1rem 0rem;
     padding: 0;
 }
 .movieDetail-score{
     display: inline-block;
     text-align: right;
     width: 18%;
-    font-weight: 600;
+    font-weight: 100;
+    font-size: 1.15rem;
 }
 .movieDetail-score::before{
     content:  '★';
@@ -259,8 +261,32 @@ li:hover{
     padding-right: .4rem;
 }
 .movieDetail-description{
+    font-family: var(--font-family-text);
+    /* font-size: var(--font-size-sm); */
     margin: 0rem 0rem 2.4rem 0rem;
 }
+.movieDetail-container .categoriesListDetail{
+    /* outline: 1px solid red; */
+    display: flex;
+    font-family: var(--font-family-text);
+    overflow-x:scroll;
+    overflow-y: hidden; 
+    white-space: nowrap;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:x proximity;
+    scroll-snap-align:center;
+    margin-bottom: 1.5rem;
+}
+.categoriesListDetail h3{
+    /* outline: 1px solid red; */
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+
+
+
+
 /* related movies */
 .relatedMovies-container{
     outline: 1px solid red;

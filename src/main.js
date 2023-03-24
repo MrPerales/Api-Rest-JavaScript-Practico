@@ -12,6 +12,7 @@ const api=axios.create({
 const URL='https://api.themoviedb.org/3';
 const urlImages='https://image.tmdb.org/t/p/w300';
 
+
 //function build DOM 
 
 function createMovies(movieList,container){
@@ -20,11 +21,16 @@ function createMovies(movieList,container){
     movieList.forEach(element => {
         const movieContainer=document.createElement('div');
         movieContainer.classList.add('movie-container');
+        movieContainer.addEventListener('click',()=>{
+            location.hash=`#movie=${element.id}-${element.title}`;
+        });
 
         const movieImg=document.createElement('img');
         movieImg.classList.add('movie-img');
         movieImg.setAttribute('alt',element.title)
         movieImg.setAttribute('src',`${urlImages}/${element.poster_path}`);
+
+       
 
         movieContainer.appendChild(movieImg);
         container.appendChild(movieContainer);
@@ -103,3 +109,20 @@ async function getMoviesBySearch(query){
     const movies=data.results
     createMovies(movies,genericListSection);
 }  
+
+async function getMovieById(id){
+    const {data,status}= await api(`/movie/${id}`)
+    
+
+    movieDetailTitle.textContent=data.title;
+    movieDetailScore.textContent=data.vote_average;
+    movieDetailDescription.textContent=data.overview;
+    // const urlImagesW500='https://image.tmdb.org/t/p/w500';
+
+    const movieImgUrl= `https://image.tmdb.org/t/p/w500${data.poster_path}`
+
+    headerSection.style.background=`url(${movieImgUrl})`
+
+    createCategories(data.genres,movieDetailCategoriesList);
+   
+}

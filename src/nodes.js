@@ -15,6 +15,8 @@ const categoriesMovieList=document.querySelector('.categoriesMovieList');
 const categoriesListContainer=document.querySelector('.categoriesList');
 const trendingPreviewMovieList=document.querySelector(
     '.trendingPreview-movieList');
+const movieDetailCategoriesList=document.querySelector('#movieDetail .categoriesListDetail');
+
 
 //elements
 const headerArrow= document.querySelector('.header-arrow');

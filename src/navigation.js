@@ -77,14 +77,12 @@ function categoriesPage(){
     genericListSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
 
+    
     const [_,categoryData]=location.hash.split('=') //change the hash to array   ['#category' ,'id-name']
     
     const [categoryId,categoryName]=categoryData.split('-');//['id','categoryName'];
     
     headerTitleCategoryViewer.innerText=categoryName;
-    
-   
-    
     getMoviesByCategory(categoryId);
 
 }
@@ -133,7 +131,19 @@ function movieDetailPage(){
 
     genericListSection.classList.add('inactive');
     movieDetailSection.classList.remove('inactive');
+
+    //get ID 
+    
+    const [_,movieId]=location.hash.split('=') //change the hash to array   ['#category' ,'id-name']
+    
+    const [id,movieName]=movieId.split('-');//['id','categoryName'];
+
+    // console.log(id)
+
+    getMovieById(id);
+
 }
+
 // function trendsPage(){  
 //     console.log('trends');
 // }
