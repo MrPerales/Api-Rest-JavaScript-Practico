@@ -58,14 +58,14 @@ function createCategories(categoryList,container){
 
 // API calls
 async function getTrendingMoviesPreview(){
-    const {data,response} = await api('/trending/movie/day')
+    const {data,status} = await api('/trending/movie/day')
     const movies =data.results;
    
     createMovies(movies,trendingPreviewMovieList);
 }
 
 async function getCategoriesPreview(){
-    const {data,response}=await api('/genre/movie/list');
+    const {data,status}=await api('/genre/movie/list');
     // console.log(data);
     const categories=data.genres;
     createCategories(categories,categoriesListContainer);
@@ -74,8 +74,8 @@ async function getCategoriesPreview(){
 
 async function getRandomMoviesPreview(){   //not random , is now_Playing
 
-    const {data,response}=await api('/movie/now_playing');
-    console.log(data);
+    const {data,status}=await api('/movie/now_playing');
+    // console.log(data);
     const nowPlaying = data.results;
 
     createMovies(nowPlaying,categoriesMovieList);
@@ -94,3 +94,12 @@ async function getMoviesByCategory(id){
 
 }
 
+async function getMoviesBySearch(query){
+    const {data,status} = await api('/search/multi',{
+        params:{
+            query:query,
+        }
+    });
+    const movies=data.results
+    createMovies(movies,genericListSection);
+}  

@@ -22,7 +22,7 @@ const headerTitle=document.querySelector('.header-title');
 const headerTitleCategoryViewer=document.querySelector('.header-title--categoryViewer');
 
 const searchForm =document.querySelector('#searchForm');
-const search=document.querySelector('#search');
+const searchInput=document.querySelector('#search');
 const searchBtn=document.querySelector('#searchBtn');
 
 const movieDetailTitle=document.querySelector('.movieDetail-title');

@@ -2,11 +2,11 @@ window.addEventListener('DOMContentLoaded',navigator,false);
 window.addEventListener('hashchange',navigator,false);
 
 searchBtn.addEventListener('click',()=>{
-    location.hash='#search=';
+    location.hash=`#search=${searchInput.value}`;
 })
 
 headerArrow.addEventListener('click',()=>{
-    location.hash='#home';
+    window.history.back();
 });
 
 
@@ -100,7 +100,7 @@ function searchPage(){
     headerArrow.classList.remove('header-arrow--white');
 
     headerTitle.classList.add('inactive')
-    headerTitleCategoryViewer.classList.remove('inactive');
+    headerTitleCategoryViewer.classList.add('inactive');
     searchForm.classList.remove('inactive');
 
     trendingPreviewSection.classList.add('inactive');
@@ -108,8 +108,11 @@ function searchPage(){
 
     genericListSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
-
-
+    
+    // ['#search' ,'query']
+    let [_,query]=location.hash.split('=') //change the hash to array   
+    query =query.replaceAll('%20',' ');
+    getMoviesBySearch(query);
 }
 function movieDetailPage(){
     console.log('Movie');
