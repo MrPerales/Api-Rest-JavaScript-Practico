@@ -121,7 +121,12 @@ async function getMovieById(id){
 
     const movieImgUrl= `https://image.tmdb.org/t/p/w500${data.poster_path}`
 
-    headerSection.style.background=`url(${movieImgUrl})`
+    // const posterPathImg=document.createElement('img');
+    // posterPathImg.setAttribute('src',movieImgUrl);
+
+    // posterPath.appendChild(posterPathImg);
+
+    posterPath.style.background=`url(${movieImgUrl})`
 
     createCategories(data.genres,movieDetailCategoriesList);
    

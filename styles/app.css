@@ -11,6 +11,7 @@
     --input-background:rgba(53, 60, 71, 1);
     --input-txt-color:rgba(103, 104, 109, 1);
     --selector:rgba(58, 63, 71, 1);
+    --arrow:rgba(88, 93, 101, 1);
     
     /* typography*/
     --font-family-titles:'Poppins', sans-serif;
@@ -38,6 +39,7 @@ body{
     background-color: var(--background);
     margin: 2px 0 0 0 ;
     padding: 0;
+    width: 36rem;  /**/
 }
 h1,h2{
     margin: 0;
@@ -51,16 +53,37 @@ h1{
 h2{
     font-size: var(--font-size-sm);
 }
+
 .header-arrow {
     font-weight:500;
     font-size: 36px;
     margin-bottom: 16px;
     cursor: pointer;
     display: inline-block;
+    /* z-index: -200; */
+    /* outline: 1px solid red; */
+
 }
 .header-arrow--white {
-    color:var(--selector);
+    color:var(--arrow);
+    position: fixed;
+    z-index: 10;
+    /* outline: 1px solid blue; */
 }
+.header-arrow--white::before {
+    content: '';
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    top: .5rem;
+    left:-.3rem;
+    background: #aaa;
+    opacity: 0.4;
+    /* outline: 1px solid red; */
+    border-radius: 50%;
+    /* outline: 1px solid blue; */
+}
+
 .header-title{
     padding: 1.5rem 0rem;
 }
@@ -93,19 +116,22 @@ button{
 }
 .header-container, .categoriesPreview-container {
     padding: 0 2.4rem;
-   
-
 }
 .header-searchForm{
     margin-bottom: 2.5rem;
 }
-.header-container--long{
+.poster{
     /* background-image: ; */
-    background: linear-gradient(180deg,rgba(0,0,0,0.35)19.27%, rgba(0, 0, 0, 0) 29.17%);
-    background-size: cover;
+    /* background: linear-gradient(180deg,rgba(0,0,0,0.35)19.27%, rgba(0, 0, 0, 0) 29.17%); */
     height: 48rem;
     position: fixed;
+    z-index: -1; 
     top: 0;
+    /* outline: 1px solid red; */
+    width: 36rem;
+    background-size:cover !important;
+}
+.poster img{
     width: 100%;
 }
 .trendingPreview-title{
@@ -147,7 +173,7 @@ button{
     cursor: pointer;
 
 }
-.trendingPreview-container, .categoriesPreview-container, footer {
+.trendingPreview-container, .categoriesPreview-container{
     margin-top: 3rem;
 }
 .categoriesPreview{
@@ -231,7 +257,8 @@ li:hover{
 
 /*movie detail */
 .movieDetail-container{
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
+    background-color: var(--background);
     width: 36rem;
     border-bottom-left-radius: 1.6rem;
     border-top-right-radius: 1.6rem;
@@ -326,12 +353,14 @@ li:hover{
 
 
 footer{
+    /* position: absolute; */
+    margin-bottom: 0;
     display: flex;
     justify-content: center;
+    text-align: center;
     height: 4.8rem;
     font-family: var(--font-family-text);
     font-size: var(--font-size-sm);
-
 }
 /* navigation */
 .inactive{

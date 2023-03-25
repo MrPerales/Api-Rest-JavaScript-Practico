@@ -1,5 +1,4 @@
 // sections
-const headerSection=document.querySelector('#header');
 const trendingPreviewSection=document.querySelector('#trendingPreview');
 const categoriesPreviewSection=document.querySelector('.categoriesPreview');
 const genericListSection=document.querySelector('#genericList');
@@ -32,3 +31,5 @@ const movieDetailScore=document.querySelector('.movieDetail-score');
 const movieDetailDescription=document.querySelector('.movieDetail-description');
 
 const relatedMoviesTitle=document.querySelector('.relatedMovies-title')
+
+const posterPath=document.querySelector('.posterPath');

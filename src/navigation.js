@@ -29,8 +29,8 @@ function navigator(){
 function homePage(){
     console.log('home');
 
-    headerSection.classList.remove('header-container--long');
-    headerSection.style.background='';
+    posterPath.classList.remove('poster');
+    // headerSection.style.background='';
     headerArrow.classList.add('inactive');
     headerArrow.classList.remove('header-arrow--white');
 
@@ -61,8 +61,10 @@ function categoriesPage(){
     console.log('categories');
 
     window.scroll(0,0);
-    headerSection.classList.remove('header-container--long');
-    headerSection.style.background='';
+    // headerSection.classList.remove('header-container--long');
+    // headerSection.style.background='';
+    posterPath.classList.remove('poster');
+
     headerArrow.classList.remove('inactive');
     headerArrow.classList.remove('header-arrow--white');
 
@@ -92,8 +94,10 @@ function searchPage(){
     window.scroll(0,0);
 
     
-    headerSection.classList.remove('header-container--long');
-    headerSection.style.background='';
+    // headerSection.classList.remove('header-container--long');
+    // headerSection.style.background='';
+    posterPath.classList.remove('poster');
+
     headerArrow.classList.remove('inactive');
     headerArrow.classList.remove('header-arrow--white');
 
@@ -117,7 +121,7 @@ function movieDetailPage(){
     window.scroll(0,0);
 
 
-    headerSection.classList.add('header-container--long');
+    posterPath.classList.add('poster');
     // headerSection.style.background='';
     headerArrow.classList.remove('inactive');
     headerArrow.classList.add('header-arrow--white');
