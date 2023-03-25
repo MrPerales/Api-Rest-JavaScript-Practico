@@ -45,6 +45,8 @@ function homePage(){
     genericListSection.classList.add('inactive');
     movieDetailSection.classList.add('inactive');
 
+    footer.classList.remove('inactive')
+
     
 
 
@@ -79,6 +81,8 @@ function categoriesPage(){
     genericListSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
 
+    footer.classList.remove('inactive')
+
     
     const [_,categoryData]=location.hash.split('=') //change the hash to array   ['#category' ,'id-name']
     
@@ -111,6 +115,8 @@ function searchPage(){
     genericListSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
     
+    footer.classList.remove('inactive')
+
     // ['#search' ,'query']
     let [_,query]=location.hash.split('=') //change the hash to array   
     query =query.replaceAll('%20',' ');
@@ -136,6 +142,7 @@ function movieDetailPage(){
     genericListSection.classList.add('inactive');
     movieDetailSection.classList.remove('inactive');
 
+    footer.classList.add('inactive')
     //get ID 
     
     const [_,movieId]=location.hash.split('=') //change the hash to array   ['#category' ,'id-name']

@@ -4,7 +4,7 @@ const categoriesPreviewSection=document.querySelector('.categoriesPreview');
 const genericListSection=document.querySelector('#genericList');
 const movieDetailSection =document.querySelector('#movieDetail');
 const relatedMoviesContainer=document.querySelector('.relatedMovies-container');
-
+const footer=document.querySelector('#footer');
 
 //list & containers
 const trendingMoviesPreviewList=document.querySelector('.trendingPreview-movieList');
