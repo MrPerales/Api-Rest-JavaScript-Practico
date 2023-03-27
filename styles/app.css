@@ -11,7 +11,7 @@
     --input-background:rgba(53, 60, 71, 1);
     --input-txt-color:rgba(103, 104, 109, 1);
     --selector:rgba(58, 63, 71, 1);
-    --arrow:rgba(88, 93, 101, 1);
+    --arrow:rgb(255, 255, 255);
     
     /* typography*/
     --font-family-titles:'Poppins', sans-serif;
@@ -353,7 +353,7 @@ li:hover{
 
 
 footer{
-    /* position: absolute; */
+    position: absolute;
     margin-bottom: 0;
     display: flex;
     justify-content: center;

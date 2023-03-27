@@ -8,7 +8,7 @@ const footer=document.querySelector('#footer');
 
 //list & containers
 const trendingMoviesPreviewList=document.querySelector('.trendingPreview-movieList');
-const trendingMoviesPreviewListTitle=document.querySelector('trendingPreview-title');
+const trendingMoviesPreviewListTitle=document.querySelector('.trendingPreview-title');
 const relatedMoviesScrollContainer=document.querySelector('.relatedMovies-scrollContainer');
 const categoriesMovieList=document.querySelector('.categoriesMovieList');
 const categoriesListContainer=document.querySelector('.categoriesList');

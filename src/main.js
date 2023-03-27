@@ -126,7 +126,9 @@ async function getMovieById(id){
 
     // posterPath.appendChild(posterPathImg);
 
-    posterPath.style.background=`url(${movieImgUrl})`
+    posterPath.style.background=`
+    linear-gradient(180deg,rgba(0,0,0,0.35)19.27%, rgba(0, 0, 0, 0) 29.17%),
+    url(${movieImgUrl})`
 
     createCategories(data.genres,movieDetailCategoriesList);
    
