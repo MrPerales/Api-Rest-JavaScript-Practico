@@ -348,6 +348,23 @@ li:hover{
     margin-bottom: 1rem;
     /* outline: 1px solid red ; */
 }
+.spanMovieImg{
+    background-color: var(--selector);
+    font-family: var(--font-family-titles);
+    font-size: var(--font-size-lg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 18.7rem;
+    min-height: 18.7rem;
+    max-height: 18.7rem;
+    width: 12.4rem;
+    min-width: 12.4rem;
+    max-width: 12.4rem;
+    margin-bottom: 2rem;
+    outline: 1px solid red ;
+    border-radius: .8rem;
+}
 
 /*movie detail */
 .movieDetail-container{
