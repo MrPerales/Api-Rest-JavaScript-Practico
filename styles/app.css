@@ -12,7 +12,7 @@
     --input-txt-color:rgba(103, 104, 109, 1);
     --selector:rgba(58, 63, 71, 1);
     --arrow:rgb(255, 255, 255);
-    
+    --loading:#d5d4dde5;
     /* typography*/
     --font-family-titles:'Poppins', sans-serif;
     --font-family-text:'Poppins', sans-serif;
@@ -83,6 +83,94 @@ h2{
     border-radius: 50%;
     /* outline: 1px solid blue; */
 }
+
+/* loading  */
+
+.skeleton-loading{
+    /* opacity: .7; */
+   
+    /* background-color: #EEEAF2; */
+    background-color: var(--loading);
+
+    animation: skeleton-loading infinite 1.5s ;
+    border-radius: .8rem;
+    height: 15rem; 
+    /* width: 40%; */
+    width: 10rem;
+    
+}
+.skeleton-loading--generic{
+    background-color:var(--loading);
+
+    animation: skeleton-loading infinite 1.5s ;
+    border-radius: .8rem;
+    height: 18.7rem;
+    max-height: 18.7rem;
+    min-height: 18.7rem; 
+    /* width: 40%; */
+    width: 12.4rem;
+    max-width: 12.4rem;
+    min-width: 12.4rem;
+    margin-bottom: 1rem;
+}
+.skeleton-loading--related{
+    /* background-color: #EEEAF2; */
+    background-color:var(--loading);
+
+    animation: skeleton-loading infinite 1.5s ;
+    border-radius: .8rem;
+    height: 18.7rem;
+    max-height: 18.7rem;
+    min-height: 18.7rem; 
+    /* width: 40%; */
+    width: 12.5rem;
+    max-width: 12.5rem;
+    min-width: 12.5rem;
+}
+.skeleton-loading--text{
+    display: flex;
+    background-color: var(--loading);
+    animation: skeleton-loading infinite 1.5s;
+    border-radius: .8rem;
+    width: 5.1rem;
+    height:2.5rem;
+    margin-right: 1.5rem;
+}
+.skeleton-loading--text:nth-child(2){
+    animation-delay: .1s;
+}
+.skeleton-loading--text:nth-child(3){
+    animation-delay: .2s;
+}
+.skeleton-loading--text:nth-child(4){
+    animation-delay: .3s;
+}
+.skeleton-loading--text:nth-child(5){
+    animation-delay: .4s;
+}
+.skeleton-loading--title{
+    background-color: var(--loading);
+    animation: skeleton-loading infinite 1.5s;
+    border-radius: 1rem;
+    width: 24.9rem;
+    height: 2.5rem;
+}
+.skeleton-loading--score{
+    background-color: var(--loading);
+    animation: skeleton-loading infinite 1.5s;
+    border-radius:1rem ;
+    width: 5.6rem;
+    height:1.5rem ;
+}
+.skeleton-loading--description{
+    background-color: var(--loading);
+    animation: skeleton-loading infinite 1.5s;
+    border-radius:1rem ;
+    width: 31.2rem;
+    height: 1rem;
+    /* margin-bottom:.5rem ; */
+}
+
 
 .header-title{
     padding: 1.5rem 0rem;
@@ -374,4 +462,17 @@ footer{
 /* navigation */
 .inactive{
     display: none;
+}
+
+
+
+/* animations */
+@keyframes skeleton-loading {
+    0%,100%{
+        opacity:100% ;
+    }
+    50%{
+        opacity: 0%;
+    }
+    
 }
