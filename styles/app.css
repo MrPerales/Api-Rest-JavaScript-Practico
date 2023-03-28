@@ -330,7 +330,14 @@ li:hover{
 }
 .genericList-container .movie-container{
     display: inline-block;
-    width: 40%;
+    /* width: 40%; */
+    height: 18.7rem;
+    min-height: 18.7rem;
+    max-height: 18.7rem;
+    width: 12.4rem;
+    min-width: 12.4rem;
+    max-width: 12.4rem;
+    margin-bottom: 2rem;
 }
 .genericList-container {
     width: 36rem;
