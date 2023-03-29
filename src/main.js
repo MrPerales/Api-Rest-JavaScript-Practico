@@ -29,8 +29,8 @@ const lazyLoader = new IntersectionObserver((entries, observer) => {
 
 //function build DOM 
 
-function createMovies(movieList, container, {lazyLoad = false ,clean= true}={}) {
-    if(clean){
+function createMovies(movieList, container, { lazyLoad = false, clean = true } = {}) {
+    if (clean) {
         container.innerHTML = '';
 
     }
@@ -57,8 +57,8 @@ function createMovies(movieList, container, {lazyLoad = false ,clean= true}={}) 
         //     movieContainer.appendChild(spanMovieImg);
         //     // spanMovieImg.innerHTML='';
         // });
-        if(element.poster_path == null){
-            const spanMovieTitle=document.createTextNode(element.name || element.title);
+        if (element.poster_path == null) {
+            const spanMovieTitle = document.createTextNode(element.name || element.title);
             const spanMovieImg = document.createElement('span');
             spanMovieImg.classList.add('spanMovieImg');
             spanMovieImg.appendChild(spanMovieTitle);
@@ -124,31 +124,44 @@ async function getRandomMoviesPreview() {   //not random , is now_Playing
     // console.log(data);
     const nowPlaying = data.results;
 
-    createMovies(nowPlaying, categoriesMovieList,{lazyLoad: false ,clean: true});
-    
-    const btnSeeMore=document.createElement('button');
-    btnSeeMore.innerHTML='See More'
-    btnSeeMore.addEventListener('click',getPaginatedRandomMovies);
-    categoriesMovieList.appendChild(btnSeeMore);
-}
-let page=1;
-async function getPaginatedRandomMovies(){
-    page++;
-    const {data}=await api(`/movie/now_playing`,{
-        params:{
-            page,
-        }
-    });
-    const nowPlaying=data.results;
+    createMovies(nowPlaying, categoriesMovieList, { lazyLoad: false, clean: true });
 
-    createMovies(nowPlaying, categoriesMovieList, {lazyLoad: false ,clean: false });
-    
-    const btnSeeMore=document.createElement('button');
-    btnSeeMore.innerHTML='See More'
-    btnSeeMore.classList.add('btnSeeMore')
-    btnSeeMore.addEventListener('click',getPaginatedRandomMovies);
-    // btnSeeMore.remove();
-    categoriesMovieList.appendChild(btnSeeMore);
+    // const btnSeeMore = document.createElement('button');
+    // btnSeeMore.innerHTML = 'See More'
+    // btnSeeMore.addEventListener('click', getPaginatedRandomMovies);
+    // categoriesMovieList.appendChild(btnSeeMore);
+}
+
+// window.addEventListener('scroll',getPaginatedRandomMovies);
+
+//function scroll of getRandomMoviesPreview (home);
+async function getPaginatedRandomMovies() { //scroll
+
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+
+    //condition to know if you are on viewport bottom 
+    //(-15 para restarle pixeles ya que no es tan exacta la medicion )
+    const isScrollBottom = (scrollTop + clientHeight) >= (scrollHeight - 15);
+
+    if (isScrollBottom) {
+        page++;
+        const { data } = await api(`/movie/now_playing`, {
+            params: {
+                page,
+            }
+        });
+        const nowPlaying = data.results;
+
+        createMovies(nowPlaying, categoriesMovieList, { lazyLoad: false, clean: false });
+    }
+
+
+    // const btnSeeMore=document.createElement('button');
+    // btnSeeMore.innerHTML='See More'
+    // btnSeeMore.classList.add('btnSeeMore')
+    // btnSeeMore.addEventListener('click',getPaginatedRandomMovies);
+    // // btnSeeMore.remove();  
+    // categoriesMovieList.appendChild(btnSeeMore);
 }
 
 
