@@ -29,8 +29,11 @@ const lazyLoader = new IntersectionObserver((entries, observer) => {
 
 //function build DOM 
 
-function createMovies(movieList, container, lazyLoad = false) {
-    container.innerHTML = '';
+function createMovies(movieList, container, {lazyLoad = false ,clean= true}={}) {
+    if(clean){
+        container.innerHTML = '';
+
+    }
 
     movieList.forEach(element => {
         const movieContainer = document.createElement('div');
@@ -121,7 +124,31 @@ async function getRandomMoviesPreview() {   //not random , is now_Playing
     // console.log(data);
     const nowPlaying = data.results;
 
-    createMovies(nowPlaying, categoriesMovieList, true);
+    createMovies(nowPlaying, categoriesMovieList,{lazyLoad: false ,clean: true});
+    
+    const btnSeeMore=document.createElement('button');
+    btnSeeMore.innerHTML='See More'
+    btnSeeMore.addEventListener('click',getPaginatedRandomMovies);
+    categoriesMovieList.appendChild(btnSeeMore);
+}
+let page=1;
+async function getPaginatedRandomMovies(){
+    page++;
+    const {data}=await api(`/movie/now_playing`,{
+        params:{
+            page,
+        }
+    });
+    const nowPlaying=data.results;
+
+    createMovies(nowPlaying, categoriesMovieList, {lazyLoad: false ,clean: false });
+    
+    const btnSeeMore=document.createElement('button');
+    btnSeeMore.innerHTML='See More'
+    btnSeeMore.classList.add('btnSeeMore')
+    btnSeeMore.addEventListener('click',getPaginatedRandomMovies);
+    // btnSeeMore.remove();
+    categoriesMovieList.appendChild(btnSeeMore);
 }
 
 
