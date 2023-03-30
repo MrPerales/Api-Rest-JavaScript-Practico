@@ -1,3 +1,4 @@
+let maxPage;
 let page=1;
 let infiniteScroll;
 window.addEventListener('DOMContentLoaded',navigator,false);
@@ -106,7 +107,10 @@ function categoriesPage(){
     headerTitleCategoryViewer.innerText=categoryName;
     getMoviesByCategory(categoryId);
     page=1;
-    infiniteScroll=getPaginatedCategoryMovies;
+    //se le agrega el argumento ya que para aprovechar el closures 
+    //ya que se ejecuta la primera fucnion y ya hasta que se active el evento 
+    //se ejecutara la funcion que esta dentro 
+    infiniteScroll=getPaginatedCategoryMovies(categoryId);
 
 
 }
@@ -140,8 +144,12 @@ function searchPage(){
     let [_,query]=location.hash.split('=') //change the hash to array   
     query =query.replaceAll('%20',' ');
     getMoviesBySearch(query);
+    // console.log('query =',query);
     page=1;
-    infiniteScroll= getPaginatedSearchMovies;
+    //se le agrega el argumento ya que para aprovechar el closures 
+    //ya que se ejecuta la primera fucnion y ya hasta que se active el evento 
+    //se ejecutara la funcion que esta dentro 
+    infiniteScroll= getPaginatedSearchMovies(query);
 }
 function movieDetailPage(){
     console.log('Movie');
