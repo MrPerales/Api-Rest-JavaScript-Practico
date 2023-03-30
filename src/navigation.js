@@ -105,6 +105,9 @@ function categoriesPage(){
     
     headerTitleCategoryViewer.innerText=categoryName;
     getMoviesByCategory(categoryId);
+    page=1;
+    infiniteScroll=getPaginatedCategoryMovies;
+
 
 }
 
@@ -137,6 +140,8 @@ function searchPage(){
     let [_,query]=location.hash.split('=') //change the hash to array   
     query =query.replaceAll('%20',' ');
     getMoviesBySearch(query);
+    page=1;
+    infiniteScroll= getPaginatedSearchMovies;
 }
 function movieDetailPage(){
     console.log('Movie');

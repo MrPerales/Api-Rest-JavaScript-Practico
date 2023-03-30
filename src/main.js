@@ -166,15 +166,44 @@ async function getPaginatedRandomMovies() { //scroll
 
 
 async function getMoviesByCategory(id) {
+
     const { data, status } = await api(`/discover/movie`, {
         params: {
             with_genres: id
         }
     });
     const category = data.results;
+    console.log(category);
 
     createMovies(category, genericListSection, true);
 
+}
+//function scroll of getMoviesByCategory   (categories);
+async function getPaginatedCategoryMovies() {
+
+    //get the categoryId from hash again 
+    const [_, categoryData] = location.hash.split('=');
+    // console.log(categoryData);
+    const [categoryID] = categoryData.split('-')
+    // console.log(categoryID);
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+
+    //condition to know if you are on viewport bottom 
+    //(-15 para restarle pixeles ya que no es tan exacta la medicion )
+    const isScrollBottom = (scrollTop + clientHeight) >= (scrollHeight - 15);
+    if (isScrollBottom) {
+        page++;
+        const { data, status } = await api(`/discover/movie`, {
+            params: {
+                with_genres: categoryID,
+                page,
+            }
+        });
+        const category = data.results;
+        console.log(category)
+        createMovies(category, genericListSection, { lazyLoad: false, clean: false });
+
+    }
 }
 
 async function getMoviesBySearch(query) {
@@ -185,6 +214,27 @@ async function getMoviesBySearch(query) {
     });
     const movies = data.results
     createMovies(movies, genericListSection, true);
+}
+
+//function scroll of  getMoviesBySearch   (search);
+async function getPaginatedSearchMovies() {
+
+    const [_,query]=location.hash.split('=');
+    // console.log(query);
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    const isScrollBottom = (scrollTop + clientHeight) >= (scrollHeight - 15);
+
+    if (isScrollBottom) {
+        page++
+        const { data, status } = await api('/search/multi', {
+            params: {
+                query: query,
+                page
+            }
+        });
+        const movies = data.results
+        createMovies(movies, genericListSection, { lazyLoad: false, clean: false });
+    }
 }
 
 async function getMovieById(id) {
