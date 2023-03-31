@@ -38,9 +38,7 @@ function createMovies(movieList, container, { lazyLoad = false, clean = true } =
     movieList.forEach(element => {
         const movieContainer = document.createElement('div');
         movieContainer.classList.add('movie-container');
-        movieContainer.addEventListener('click', () => {
-            location.hash = `#movie=${element.id}-${element.title}`;
-        });
+
 
         const movieImg = document.createElement('img');
         movieImg.classList.add('movie-img');
@@ -49,7 +47,10 @@ function createMovies(movieList, container, { lazyLoad = false, clean = true } =
             lazyLoad ? 'data-img'
                 : 'src'
             , `${urlImages}/${element.poster_path}`);
-
+        
+            movieImg.addEventListener('click', () => {
+            location.hash = `#movie=${element.id}-${element.title}`;
+        });
         // movieImg.addEventListener('error', () => {
         //     const spanMovieImg = document.createElement('span');
         //     spanMovieImg.classList.add('spanMovieImg')
@@ -57,6 +58,15 @@ function createMovies(movieList, container, { lazyLoad = false, clean = true } =
         //     movieContainer.appendChild(spanMovieImg);
         //     // spanMovieImg.innerHTML='';
         // });
+
+        const likeBtn=document.createElement('button');
+        likeBtn.classList.add('like-btn');
+        likeBtn.addEventListener('click',()=>{
+            likeBtn.classList.toggle('like');
+        })
+
+
+
         if (element.poster_path == null) {
             const spanMovieTitle = document.createTextNode(element.name || element.title);
             const spanMovieImg = document.createElement('span');
@@ -69,9 +79,7 @@ function createMovies(movieList, container, { lazyLoad = false, clean = true } =
             lazyLoader.observe(movieImg);
         }
 
-
-
-
+        movieContainer.appendChild(likeBtn);
         movieContainer.appendChild(movieImg);
         container.appendChild(movieContainer);
     });
@@ -123,7 +131,7 @@ async function getRandomMoviesPreview() {   //not random , is now_Playing
     const { data, status } = await api('/movie/now_playing');
     // console.log(data);
     const nowPlaying = data.results;
-    maxPage=data.total_pages;
+    maxPage = data.total_pages;
 
     createMovies(nowPlaying, categoriesMovieList, { lazyLoad: false, clean: true });
 
@@ -144,7 +152,7 @@ async function getPaginatedRandomMovies() { //scroll
     //(-15 para restarle pixeles ya que no es tan exacta la medicion )
     const isScrollBottom = (scrollTop + clientHeight) >= (scrollHeight - 15);
 
-    const pageIsNotMax= page < maxPage;
+    const pageIsNotMax = page < maxPage;
 
     if (isScrollBottom && pageIsNotMax) {
         page++;
@@ -177,14 +185,14 @@ async function getMoviesByCategory(id) {
     });
     const category = data.results;
     // console.log(category);
-    maxPage=data.total_pages;
+    maxPage = data.total_pages;
 
     createMovies(category, genericListSection, true);
 
 }
 //function scroll of getMoviesByCategory   (categories);
 function getPaginatedCategoryMovies(categoryID) {
-    return async function (){
+    return async function () {
 
         const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
@@ -202,7 +210,7 @@ function getPaginatedCategoryMovies(categoryID) {
             const category = data.results;
             console.log(category)
             createMovies(category, genericListSection, { lazyLoad: false, clean: false });
-    
+
         }
     }
 }
@@ -214,7 +222,7 @@ async function getMoviesBySearch(query) {
         }
     });
     const movies = data.results;
-    maxPage=data.total_pages;
+    maxPage = data.total_pages;
 
     createMovies(movies, genericListSection, true);
 }
@@ -222,10 +230,10 @@ async function getMoviesBySearch(query) {
 //function scroll of  getMoviesBySearch   (search);
 function getPaginatedSearchMovies(query) {
     return async function () {
-        
+
         const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
         const isScrollBottom = (scrollTop + clientHeight) >= (scrollHeight - 15);
-    
+
         if (isScrollBottom) {
             page++
             const { data, status } = await api('/search/multi', {
@@ -238,7 +246,7 @@ function getPaginatedSearchMovies(query) {
             createMovies(movies, genericListSection, { lazyLoad: false, clean: false });
         }
     }
-   
+
 }
 
 async function getMovieById(id) {
