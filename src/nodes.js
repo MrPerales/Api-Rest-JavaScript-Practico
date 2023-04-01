@@ -15,6 +15,9 @@ const categoriesListContainer=document.querySelector('.categoriesList');
 const trendingPreviewMovieList=document.querySelector(
     '.trendingPreview-movieList');
 const movieDetailCategoriesList=document.querySelector('#movieDetail .categoriesListDetail');
+const likedMoviesArticle=document.querySelector('.liked-movieList');
+const likedTitle=document.querySelector('.liked-title');
+const favoriteMoviesContainer=document.querySelector('.favorite-Movies--Container')
 
 
 //elements

@@ -26,6 +26,31 @@ const lazyLoader = new IntersectionObserver((entries, observer) => {
     });
 
 });
+// local storage
+function likedMoviesList(){
+    //json.parse para asegurar que sea un obj
+    const item =JSON.parse(localStorage.getItem('liked_movies'));
+    let movies;
+    //si item es cualquier cosa se guarda en la variable movies
+    if(item){
+        movies=item
+    }else{
+        movies={}
+    }
+    return movies; 
+}
+function likeMovie(movie){
+    const likedMovies=likedMoviesList()
+    if(likedMovies[movie.id]){
+        likedMovies[movie.id]=undefined;
+        // console.log('la pelicula ya estaba en localStorage eliminala');
+    }else{
+        likedMovies[movie.id]=movie;
+        // console.log('la pelicula no esta en localStorage agregala');
+    }
+    // JSON.stringify para convertir a string el contenido 
+    localStorage.setItem('liked_movies',JSON.stringify(likedMovies));
+}
 
 //function build DOM 
 
@@ -59,14 +84,23 @@ function createMovies(movieList, container, { lazyLoad = false, clean = true } =
         //     // spanMovieImg.innerHTML='';
         // });
 
+        // like button 
         const likeBtn=document.createElement('button');
         likeBtn.classList.add('like-btn');
+        if(likedMoviesList()[element.id]){
+            likeBtn.classList.add('like');
+        }
+
         likeBtn.addEventListener('click',()=>{
             likeBtn.classList.toggle('like');
+
+            likeMovie(element);
+            //para agregarla a favoritos sin tener que recargar la pag 
+            getLikedMovies();
         })
 
 
-
+        // por si no hay poster
         if (element.poster_path == null) {
             const spanMovieTitle = document.createTextNode(element.name || element.title);
             const spanMovieImg = document.createElement('span');
@@ -281,3 +315,12 @@ async function getRelatedMoviesById(id) {
     createMovies(relatedMovies, relatedMoviesScrollContainer, true);
 }
 
+function getLikedMovies(){
+    const likedMovies=likedMoviesList();
+
+    const arrayMovies =Object.values(likedMovies);
+    // console.log('array=',arrayMovies);
+    // console.log(likedMovies);
+    
+    createMovies(arrayMovies,likedMoviesArticle,{ lazyLoad: true, clean: true});
+}

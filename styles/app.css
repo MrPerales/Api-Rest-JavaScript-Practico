@@ -230,10 +230,10 @@ button{
 }
 .liked-title{
     margin-top: 2rem;
-    padding-left: 0;
+    
 }
 .trendingPreview-container,.favorite-Movies--Container{
-    display: flex;
+    /* display: flex; */
     padding: 0 1rem;
     width: 36rem;
     height: 20rem;
@@ -247,9 +247,7 @@ button{
     overscroll-behavior-x:contain;
     scroll-snap-type:x proximity;
 }
-.favorite-Movies--Container{
-    flex-direction: column;
-}
+
 /* .trendingPreview-movieList{ 
     outline: 1px solid red;
     margin-top: 2rem;
