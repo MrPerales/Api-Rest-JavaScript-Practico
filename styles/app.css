@@ -83,7 +83,17 @@ h2{
     border-radius: 50%;
     /* outline: 1px solid blue; */
 }
+.title-and-select{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.lang{
+    width: 7rem;
+    height: 2rem;
 
+}
 /* loading  */
 
 .skeleton-loading{

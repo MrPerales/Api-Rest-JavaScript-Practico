@@ -1,8 +1,8 @@
 let maxPage;
 let page=1;
 let infiniteScroll;
-window.addEventListener('DOMContentLoaded',navigator,false);
-window.addEventListener('hashchange',navigator,false);
+window.addEventListener('DOMContentLoaded',navigation,false);
+window.addEventListener('hashchange',navigation,false);
 window.addEventListener('scroll',infiniteScroll,false);
 
 searchBtn.addEventListener('click',()=>{
@@ -14,7 +14,7 @@ headerArrow.addEventListener('click',()=>{
 });
 
 
-function navigator(){
+function navigation(){
     console.log([location]);
 
     if(infiniteScroll){

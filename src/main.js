@@ -1,3 +1,4 @@
+// let lang = navigator.language; 
 const api = axios.create({
     baseURL: 'https://api.themoviedb.org/3',
     headers: {
@@ -5,6 +6,7 @@ const api = axios.create({
     },
     params: {
         'api_key': API_KEY,
+        'language':getLang() //lang,
     }
 })
 
@@ -324,3 +326,10 @@ function getLikedMovies(){
     
     createMovies(arrayMovies,likedMoviesArticle,{ lazyLoad: true, clean: true});
 }
+
+function getLang(){
+    const language=document.querySelector('.lang');
+    let lang = language.value;
+    return lang;
+}
+    // const language=document.querySelector('.lang');
