@@ -328,8 +328,11 @@ function getLikedMovies(){
 }
 
 function getLang(){
-    const language=document.querySelector('.lang');
     let lang = language.value;
     return lang;
 }
+
+languageOpcEs.addEventListener('click',()=> location.reload())
+
+languageOpcEn.addEventListener('click',()=>location.reload())
     // const language=document.querySelector('.lang');

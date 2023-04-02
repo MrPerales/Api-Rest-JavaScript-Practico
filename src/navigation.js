@@ -64,10 +64,17 @@ function homePage(){
     likedTitle.classList.remove('inactive');
     favoriteMoviesContainer.classList.remove('inactive');
 
+    language.classList.remove('inactive');
+
 
 
     footer.classList.remove('inactive')
 
+    if (language.value=='es'){
+        trendingMoviesPreviewListTitle.innerText='Tendencias';
+        likedTitle.innerText='Peliculas Favoritas';
+        // homePage();
+    }
     
 
 
@@ -107,6 +114,8 @@ function categoriesPage(){
     likedMoviesArticle.classList.add('inactive');
     likedTitle.classList.add('inactive');
     favoriteMoviesContainer.classList.add('inactive');
+
+    language.classList.add('inactive');
 
 
     footer.classList.remove('inactive')
@@ -154,6 +163,9 @@ function searchPage(){
     likedTitle.classList.add('inactive');
     favoriteMoviesContainer.classList.add('inactive');
 
+    language.classList.add('inactive');
+
+
 
     footer.classList.remove('inactive')
 
@@ -193,6 +205,9 @@ function movieDetailPage(){
     likedMoviesArticle.classList.add('inactive');
     likedTitle.classList.add('inactive');
     favoriteMoviesContainer.classList.add('inactive');
+
+    language.classList.add('inactive');
+
 
     footer.classList.add('inactive')
     //get ID 

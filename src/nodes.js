@@ -17,7 +17,11 @@ const trendingPreviewMovieList=document.querySelector(
 const movieDetailCategoriesList=document.querySelector('#movieDetail .categoriesListDetail');
 const likedMoviesArticle=document.querySelector('.liked-movieList');
 const likedTitle=document.querySelector('.liked-title');
-const favoriteMoviesContainer=document.querySelector('.favorite-Movies--Container')
+const favoriteMoviesContainer=document.querySelector('.favorite-Movies--Container');
+const language=document.querySelector('.lang');
+const languageOpcEs=document.querySelector('.opcEs')
+const languageOpcEn=document.querySelector('.opcEn')
+
 
 
 //elements
